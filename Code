@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+const ll MAX=1e7;
+bool req[MAX];
+void sieve(){
+for(int i=2;i<=MAX;i++){
+    req[i]=true;
+}
+for(int i=2;i<=sqrt(MAX);i++){
+    if(req[i]==true){
+        for(int j=2;i*j<=MAX;j++){
+            req[i*j]=false;
+        }
+    }
+}
+}
+ll a,b,res=0;
+main(){
+ios_base::sync_with_stdio(false);
+cin.tie(0);
+cout.tie(0);
+sieve();
+cin >> a >> b;
+for(ll i=a;i<=b;i++){
+    if(req[i]==true){
+        res++;
+    }
+}
+cout << res;
+}
